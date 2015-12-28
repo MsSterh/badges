@@ -1,0 +1,5 @@
+<% @collections.each do |collection| %>
+  <%= render '/collections/collection', :collection => collection %>
+<% end if @collections.any? %>
+
+<p>Add collection</p>
