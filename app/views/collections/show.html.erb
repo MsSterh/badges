@@ -1,5 +1,8 @@
-<% @collections.each do |collection| %>
-  <%= render '/collections/collection', :collection => collection %>
-<% end if @collections.any? %>
+<% if @collection.any? %>
+  <%= render partial: '/collections/partials/collection', collection: @collection %>
+<% else %>
+  <h1>You have not had any collections yet.</h1>
+<% end %>
+
 
 <p>Add collection</p>

@@ -1,10 +1,10 @@
 class CollectionsController < ActionController::Base
 
   def create
-    @collection = Collections.new
+    @collection = Collection.new
   end
 
   def show
-    @collection = Collections.all
+    @collection = Collection.all
   end
 end
