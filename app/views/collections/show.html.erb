@@ -1,8 +1,7 @@
-<% if @collection.any? %>
-  <%= render partial: '/collections/partials/collection', collection: @collection %>
+<% if @collections.any? %>
+  <%= render partial: '/collections/partials/collection', collection: @collections %>
 <% else %>
   <h1>You have not had any collections yet.</h1>
 <% end %>
 
-
-<p>Add collection</p>
+<%= link_to 'New collection', :collections_new %>

@@ -1,0 +1,8 @@
+<h1>Edit: <%= @collection.title %></h1>
+
+<%= form_for @collection do |f| %>
+  <%= f.text_field :title %>
+
+  <%= link_to 'Cancel', collections_path %>
+  <%= f.submit :update %>
+<% end %>

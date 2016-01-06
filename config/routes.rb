@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   get 'collections' => 'collections#show'
+  get 'collections/new' => 'collections#new'
+  get 'collections/:id/edit' => 'collections#edit'
+  get 'collections/:id/update' => 'collections#update'
   get 'collections/:id' => 'collections#index'
+  post 'collections' => 'collections#create'
 
 
   # Example of regular route:

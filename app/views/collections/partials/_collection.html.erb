@@ -1,4 +1,7 @@
-<h1><%= collection.title %></h1>
+<div>
+  <h1><%= collection.title %></h1>
+  <%= link_to 'Edit', controller: "collections", action: "edit", id: collection %>
+</div>
 <ul>
   <%= render partial: '/collections/partials/item', collection: collection.items, as: :item %>
 </ul>
