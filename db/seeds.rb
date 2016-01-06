@@ -61,21 +61,21 @@ user_items = [
 
 
 disney_items.each do |id, collection_id, title, image|
-  Items.create( id: id, collection_id: collection_id, title: title, image: image )
+  Item.create( id: id, collection_id: collection_id, title: title, image: image )
 end
 
 collections.each do |id, title|
-  Collections.create( id: id, title: title )
+  Collection.create( id: id, title: title )
 end
 
 users.each do |id, name|
-  Collections.create( id: id, name: name )
+  User.create( id: id, name: name )
 end
 
 user_collections.each do |user_id, collection_id, status|
-  UserCollections.create( user_id: user_id, collection_id: collection_id, status: status )
+  UserCollection.create( user_id: user_id, collection_id: collection_id, status: status )
 end
 
 user_items.each do |user_id, item_id, count|
-  UserItems.create( user_id: user_id, item_id: item_id, count: count )
+  UserItem.create( user_id: user_id, item_id: item_id, count: count )
 end

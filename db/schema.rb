@@ -20,41 +20,36 @@ ActiveRecord::Schema.define(version: 20151228110336) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "item_id"
   end
 
-  add_index "collections", ["item_id"], name: "index_collections_on_item_id", using: :btree
+  create_table "items", force: :cascade do |t|
+    t.integer "collection_id"
+    t.string  "title"
+    t.string  "image"
+  end
 
-  create_table "collections_users", id: false, force: :cascade do |t|
-    t.integer "user_id",       null: false
-    t.integer "collection_id", null: false
+  add_index "items", ["collection_id"], name: "index_items_on_collection_id", using: :btree
+
+  create_table "user_collections", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "collection_id"
     t.string  "status"
   end
 
-  add_index "collections_users", ["collection_id"], name: "index_collections_users_on_collection_id", using: :btree
-  add_index "collections_users", ["user_id"], name: "index_collections_users_on_user_id", using: :btree
+  add_index "user_collections", ["collection_id"], name: "index_user_collections_on_collection_id", using: :btree
+  add_index "user_collections", ["user_id"], name: "index_user_collections_on_user_id", using: :btree
 
-  create_table "items", force: :cascade do |t|
-    t.string   "title"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "items_users", id: false, force: :cascade do |t|
-    t.integer "user_id",             null: false
-    t.integer "item_id",             null: false
+  create_table "user_items", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
     t.integer "count",   default: 0
   end
 
-  add_index "items_users", ["item_id"], name: "index_items_users_on_item_id", using: :btree
-  add_index "items_users", ["user_id"], name: "index_items_users_on_user_id", using: :btree
+  add_index "user_items", ["item_id"], name: "index_user_items_on_item_id", using: :btree
+  add_index "user_items", ["user_id"], name: "index_user_items_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
-  add_foreign_key "collections", "items"
 end
