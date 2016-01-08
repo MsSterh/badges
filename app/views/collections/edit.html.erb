@@ -1,8 +1,17 @@
+<%= link_to 'Back to collections', :collections %>
+
 <h1>Edit: <%= @collection.title %></h1>
 
 <%= form_for @collection, url: { action: "update" } do |f| %>
   <%= f.text_field :title %>
 
   <%= link_to 'Cancel', collections_path %>
+  <%= link_to 'Delete', { action: :destroy, id: @collection.id }, method: :delete %>
   <%= f.submit :update %>
 <% end %>
+
+
+<%= link_to 'Add new item', new_collection_item_url(@collection.id) %>
+<ul>
+  <%= render partial: '/collections/partials/item_edit', collection: @collection.items, as: :item %>
+</ul>

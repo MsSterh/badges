@@ -1,6 +1,5 @@
 <div>
-  <h1><%= collection.title %></h1>
-  <%= link_to 'Edit', edit_collection_url(collection) %>
+  <h1><%= link_to collection.title, collection_url(collection) %></h1>
 </div>
 <ul>
   <%= render partial: '/collections/partials/item', collection: collection.items, as: :item %>
