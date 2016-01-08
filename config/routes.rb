@@ -5,12 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  get 'collections' => 'collections#show'
-  get 'collections/new' => 'collections#new'
-  get 'collections/:id/edit' => 'collections#edit'
-  get 'collections/:id/update' => 'collections#update'
-  get 'collections/:id' => 'collections#index'
-  post 'collections' => 'collections#create'
+  resources :collections
 
 
   # Example of regular route:
