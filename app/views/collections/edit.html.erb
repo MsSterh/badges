@@ -1,6 +1,6 @@
 <h1>Edit: <%= @collection.title %></h1>
 
-<%= form_for @collection do |f| %>
+<%= form_for @collection, url: { action: "update" } do |f| %>
   <%= f.text_field :title %>
 
   <%= link_to 'Cancel', collections_path %>

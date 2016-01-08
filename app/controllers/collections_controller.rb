@@ -1,11 +1,11 @@
 class CollectionsController < ActionController::Base
 
   def index
-    @collection = Collection.find(params[:id])
+    @collections = Collection.all
   end
 
   def show
-    @collections = Collection.all
+    @collection = Collection.find(params[:id])
   end
 
   def new
@@ -13,8 +13,7 @@ class CollectionsController < ActionController::Base
   end
 
   def create
-    @collection = Collection.new
-    @collection.title = params[:collection]["title"]
+    @collection = Collection.create(collection_params)
 
     if @collection.save
       redirect_to collections_url
@@ -30,11 +29,17 @@ class CollectionsController < ActionController::Base
   def update
     @collection = Collection.find(params[:id])
 
-    if @collection.save
-      redirect_to collections_url(params[:id])
+    if @collection.update(collection_params)
+      redirect_to collection_url
     else
       render :edit
     end
+  end
+
+  private
+
+  def collection_params
+    params.require(:collection).permit(:title)
   end
 
 end

@@ -1,2 +1,8 @@
-<h1>INDEX</h1>
-<%= collection.title %>
+INDEX
+<% if @collections.any? %>
+  <%= render partial: '/collections/partials/collection', collection: @collections %>
+<% else %>
+  <h1>You have not had any collections yet.</h1>
+<% end %>
+
+<%= link_to 'New collection', :new_collection %>
