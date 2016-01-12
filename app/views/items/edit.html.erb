@@ -7,7 +7,16 @@
 <h1>Edit: <%= @item.title %></h1>
 
 <%= form_for @item, url: { action: "update" } do |f| %>
-  <%= f.text_field :title %>
+  <p>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= image_tag @item.image %>
+  </p>
+  <p>
+    Choose another image:
+    <%= f.file_field :image %>
+  </p>
 
   <%= link_to 'Cancel', collection_url(@collection) %>
   <%= link_to 'Delete', { controller: :items, action: :destroy, id: @item.id }, method: :delete %>

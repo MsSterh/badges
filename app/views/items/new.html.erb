@@ -1,6 +1,13 @@
 <h1>Add new item for "<%= @collection.title %>" collection</h1>
 
 <%= form_for @item, url: collection_items_url(@collection.id) do |f| %>
-  <%= f.text_field :title %>
+  <p>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    Choose image:
+    <%= f.file_field :image %>
+  </p>
+
   <%= f.submit :create %>
 <% end %>
