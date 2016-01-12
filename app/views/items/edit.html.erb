@@ -1,0 +1,15 @@
+<%= link_to 'Back to collections', :collections %>
+
+<p>
+  Back to collection: <%= link_to @collection.title, collection_url(@collection) %>
+</p>
+
+<h1>Edit: <%= @item.title %></h1>
+
+<%= form_for @item, url: { action: "update" } do |f| %>
+  <%= f.text_field :title %>
+
+  <%= link_to 'Cancel', collection_url(@collection) %>
+  <%= link_to 'Delete', { controller: :items, action: :destroy, id: @item.id }, method: :delete %>
+  <%= f.submit :update %>
+<% end %>

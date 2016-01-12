@@ -1,5 +1,4 @@
 <li>
   <%= item.title %>
-  <%= link_to 'edit', edit_collection_item(item) %>
-  <%= link_to 'delete', { action: :destroy, id: item.id }, method: :delete %>
+  <%= link_to 'edit', edit_collection_item_url(@collection, item) %>
 </li>
