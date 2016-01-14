@@ -4,4 +4,4 @@
   <h1>You have not had any collections yet.</h1>
 <% end %>
 
-<%= link_to 'New collection', :new_collection %>
+<%= link_to 'New collection', :new_collection if current_user.admin? %>

@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  has_many :user_collections
+  has_many :collections, through: :user_collections
+  has_many :user_items
+  has_many :items, through: :user_items
+
 end

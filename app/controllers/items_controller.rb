@@ -1,5 +1,6 @@
 class ItemsController < ActionController::Base
   layout "application"
+  before_filter :authenticate_user!
 
   def index
     find_collection

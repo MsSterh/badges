@@ -1,8 +1,13 @@
 class CollectionsController < ActionController::Base
   layout "application"
+  before_filter :authenticate_user!
 
   def index
-    @collections = Collection.all
+    if current_user.admin?
+      @collections = Collection.all
+    else
+      @collections = current_user.collections
+    end
   end
 
   def show
