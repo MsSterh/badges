@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'profile/index', as: 'user_root'
+  get 'profile', to: 'profiles#index', as: 'user_root'
+  resource :profile
 
   resources :collections do
     resources :items

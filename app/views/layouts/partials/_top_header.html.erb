@@ -1,0 +1,8 @@
+<div>
+  <% if user_signed_in? %>
+    <span>Namaste, <%= link_to current_user.name || current_user.email, user_root_path %></span>
+    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to 'Войти', new_user_session_path %> or <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+  <% end %>
+</div>

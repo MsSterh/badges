@@ -1,0 +1,18 @@
+PROFILE - index
+
+<div>
+  <%= form_for @user, url: { controller: "profiles", action: "update" } do |f| %>
+    <dl>
+      <dd>Email</dd>
+      <dt><%= @user.email %></dt>
+      <dd>Name</dd>
+      <dt><%= f.text_field :name %></dt>
+      <dd>Curent avatar</dd>
+      <dt><%= image_tag @user.avatar || @user.gravatar_url %></dt>
+      <dd>New avatar</dd>
+      <dt><%= f.file_field :avatar %></dt>
+      <dd></dd>
+      <dt><%= f.submit :update %></dt>
+    </dl>
+  <% end %>
+</div>
