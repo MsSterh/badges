@@ -3,7 +3,7 @@ class CreateUserCollections < ActiveRecord::Migration
     create_table :user_collections do |t|
       t.references :user, index: true 
       t.references :collection, index: true 
-      t.string :status
+      t.boolean :complited, default: false
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114094132) do
+ActiveRecord::Schema.define(version: 20160119075251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20160114094132) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.boolean  "approved",   default: false
+    t.datetime "created_at"
   end
 
   create_table "items", force: :cascade do |t|
@@ -33,7 +40,7 @@ ActiveRecord::Schema.define(version: 20160114094132) do
   create_table "user_collections", force: :cascade do |t|
     t.integer "user_id"
     t.integer "collection_id"
-    t.string  "status"
+    t.boolean "complited",     default: false
   end
 
   add_index "user_collections", ["collection_id"], name: "index_user_collections_on_collection_id", using: :btree

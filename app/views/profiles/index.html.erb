@@ -1,6 +1,37 @@
 PROFILE - index
 
 <div>
+  <h3>
+    Completed collection: <%= current_user.complited_collections.count %> of <%= current_user.user_collections.count %>
+  </h3>
+  <% if current_user.complited_collections.present? %>
+    <ul>
+      <% current_user.complited_collections.each do |c| %>
+        <li><%= link_to c.title, collection_url(c.id) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div>
+  <h3>Friends: <%= current_user.friends.count %></h3>
+  <% if current_user.friends.present? %>
+    <ul>
+      <% current_user.friends.each do |f| %>
+        <li><%= link_to c.name, collection_url(c.id) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div>
+  <h3>
+    Collections in progress: <%= current_user.complited_collections.count %> of <%= current_user.user_collections.count %>
+  </h3>
+  [COLLECTIONS LIST]
+</div>
+
+<div>
   <%= form_for @user, url: { controller: "profiles", action: "update" } do |f| %>
     <dl>
       <dd>Email</dd>

@@ -38,17 +38,17 @@ collections = [
 ]
 
 users = [
-  [1, "Denis" ],
-  [2, "Dasha" ],
-  [3, "Marmilasha" ]
+  [1, "Denis", "denis@mail.ru"],
+  [2, "Dasha", "dasha@mail.ru" ],
+  [3, "Marmilasha", "marmilasha@mail.ru" ]
 ]
 
 user_collections = [
-  [1, 1, "In process"],
-  [2, 1, "In process"],
-  [2, 2, "Complited"],
-  [3, 1, "In process"],
-  [3, 2, "In process"]
+  [1, 1, false],
+  [2, 1, false],
+  [2, 2, true],
+  [3, 1, false],
+  [3, 2, false]
 ]
 
 user_items = [
@@ -68,12 +68,12 @@ collections.each do |id, title|
   Collection.create( id: id, title: title )
 end
 
-users.each do |id, name|
-  User.create( id: id, name: name )
+users.each do |id, name, email|
+  User.create( id: id, name: name, email: email )
 end
 
-user_collections.each do |user_id, collection_id, status|
-  UserCollection.create( user_id: user_id, collection_id: collection_id, status: status )
+user_collections.each do |user_id, collection_id, complited|
+  UserCollection.create( user_id: user_id, collection_id: collection_id, complited: complited )
 end
 
 user_items.each do |user_id, item_id, count|

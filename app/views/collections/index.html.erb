@@ -1,3 +1,5 @@
+[SEARCH] [FULL COLLECTION: <%= @collections %>]
+
 <% if @collections.any? %>
   <%= render partial: '/collections/partials/collection', collection: @collections %>
 <% else %>
