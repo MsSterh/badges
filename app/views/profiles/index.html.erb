@@ -45,11 +45,7 @@ PROFILE - index
   <h3>
     Collections in progress: <%= current_user.collections.count %> of <%= current_user.user_collections.count %>
   </h3>
+  <%= link_to 'Add more collections', collections_url %>
 
-  <% if current_user.collections.any? %>
-    <%= render partial: '/profiles/partials/collection', collection: current_user.collections %>
-  <% else %>
-    <h1>You have not had any collections yet.</h1>
-  <% end %>
-
+  <%= render partial: '/user_collections/partials/collections', object: current_user.collections %>
 </div>

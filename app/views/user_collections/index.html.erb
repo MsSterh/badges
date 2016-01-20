@@ -1,0 +1,8 @@
+[SEARCH] 
+<h3>
+  Complited collections: <%= current_user.complited_collections.count %>
+</h3>
+
+<%= link_to 'Add more collections', collections_url %>
+
+<%= render partial: '/user_collections/partials/collections', object: @collections %>

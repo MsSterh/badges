@@ -7,6 +7,7 @@ class CollectionsController < ActionController::Base
       @collections = Collection.all
     else
       @collections = current_user.collections
+      render "user_collections/index"
     end
   end
 
