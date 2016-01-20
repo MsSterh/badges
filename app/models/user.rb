@@ -23,4 +23,11 @@ class User < ActiveRecord::Base
     user_collections.reduce([]){|arr, uc| arr << uc.collection if uc.complited; arr }
   end
 
+  def collections
+    user_collections.reduce([]){|arr, uc| arr << uc.collection if !uc.complited; arr }
+  end
+
+  def avatar_url
+    avatar.present? ? avatar : gravatar_url
+  end
 end

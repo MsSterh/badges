@@ -1,6 +1,23 @@
 PROFILE - index
 
 <div>
+  <%= form_for @user, url: { controller: "profiles", action: "update" } do |f| %>
+    <dl>
+      <dd>Email</dd>
+      <dt><%= @user.email %></dt>
+      <dd>Name</dd>
+      <dt><%= f.text_field :name %></dt>
+      <dd>Curent avatar</dd>
+      <dt><%= image_tag @user.avatar_url %></dt>
+      <dd>New avatar</dd>
+      <dt><%= f.file_field :avatar %></dt>
+      <dd></dd>
+      <dt><%= f.submit :update %></dt>
+    </dl>
+  <% end %>
+</div>
+
+<div>
   <h3>
     Completed collection: <%= current_user.complited_collections.count %> of <%= current_user.user_collections.count %>
   </h3>
@@ -26,24 +43,13 @@ PROFILE - index
 
 <div>
   <h3>
-    Collections in progress: <%= current_user.complited_collections.count %> of <%= current_user.user_collections.count %>
+    Collections in progress: <%= current_user.collections.count %> of <%= current_user.user_collections.count %>
   </h3>
-  [COLLECTIONS LIST]
-</div>
 
-<div>
-  <%= form_for @user, url: { controller: "profiles", action: "update" } do |f| %>
-    <dl>
-      <dd>Email</dd>
-      <dt><%= @user.email %></dt>
-      <dd>Name</dd>
-      <dt><%= f.text_field :name %></dt>
-      <dd>Curent avatar</dd>
-      <dt><%= image_tag @user.avatar || @user.gravatar_url %></dt>
-      <dd>New avatar</dd>
-      <dt><%= f.file_field :avatar %></dt>
-      <dd></dd>
-      <dt><%= f.submit :update %></dt>
-    </dl>
+  <% if current_user.collections.any? %>
+    <%= render partial: '/profiles/partials/collection', collection: current_user.collections %>
+  <% else %>
+    <h1>You have not had any collections yet.</h1>
   <% end %>
+
 </div>
