@@ -13,6 +13,10 @@ class CollectionsController < ActionController::Base
 
   def show
     find_collection
+
+    if !current_user.admin?
+      render "user_collections/show"
+    end
   end
 
   def new

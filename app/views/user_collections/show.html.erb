@@ -1,0 +1,8 @@
+<%= link_to 'Back to collections', :collections %>
+
+<h1><%= @collection.title %>: 
+  <%= @collection.items.inject(0) { |sum, i| sum + i.count(current_user) } %> of <%= @collection.items.count %></h1>
+
+<ul>
+  <%= render partial: '/collections/partials/item', collection: @collection.items, as: :item %>
+</ul>
