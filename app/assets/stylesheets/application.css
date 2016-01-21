@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+}
