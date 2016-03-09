@@ -1,0 +1,65 @@
+@import "../mixins/variables";
+
+.FormDevise {
+  background: $blackMiddle;
+  margin: 0 auto;
+  padding: 30px;
+  width: $formDeviseWidth;
+
+  h2 {
+    color: $greyDark;
+    font-family: $fontFamilyTitle;
+    font-size: $fontSizeH1;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  form > div {
+    margin: 20px 0;
+  }
+
+  .FormDevise-label {
+    color: $greyDark;
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+
+    em {
+      color: $blueLight;
+      display: block;
+      font-size: 10px;
+    }
+  }
+
+  .FormDevise-field {
+    display: inline-block;
+    width: 68%;
+  }
+
+  .FormDevise-field--shifted {
+    color: $greyLight;
+    margin-left: 30%;
+  }
+
+  .FormDevise-btn {
+    background: $blackDark;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    height: $btnHeight;
+    line-height: $btnHeight;
+    padding: 0 20px;
+  }
+
+  .FormDevise-links {
+    margin-top: 30px;
+
+    a {
+      color: $greyDark;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

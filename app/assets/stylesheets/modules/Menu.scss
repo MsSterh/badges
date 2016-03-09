@@ -1,0 +1,16 @@
+@import "../mixins/variables";
+
+.Menu {
+  color: $greyDark;
+  display: inline-block;
+  float: right;
+  padding: 25px 20px;
+
+  a {
+    margin: 0 10px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

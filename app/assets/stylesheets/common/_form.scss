@@ -1,0 +1,34 @@
+@import "../mixins/variables";
+
+.Input {
+  background: $blueLight;
+  border: none;
+  color: $greyLight;
+  font-family: $fontFamilyBase;
+  font-size: $fontSizeBase;
+  height: $inputHeight;
+  line-height: $inputHeight;
+  margin: 0;
+  padding: 0 10px;
+  width: calc(100% - 20px);
+
+  &:focus {
+    box-shadow: rgba(255,255,255,.5) 0px 0px 1px inset;
+  }
+}
+
+#error_explanation {
+  background: $errorColor;
+  color: $white;
+  margin: 0;
+  padding: 10px 20px;
+
+  h2 {
+    color: $white;
+    font-family: $fontFamilyBase;
+    font-size: $fontSizeBase;
+  }
+  ul {
+    margin: 0;
+  }
+}

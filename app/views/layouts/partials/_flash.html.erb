@@ -1,7 +1,5 @@
-<div>
-  FLASH:
-  <% flash.each do |name, msg| -%>
+<% flash.each do |name, msg| -%>
+  <div class="Flash">
     <%= content_tag :div, msg, class: name %>
-  <% end -%>
-</div>
-<hr />
+  </div>
+<% end -%>

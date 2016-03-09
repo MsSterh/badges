@@ -1,0 +1,14 @@
+@import "../mixins/variables";
+
+.Logo {
+  color: $greyDark;
+  display: inline-block;
+  font-family: $fontFamilyTitle;
+  font-size: 30px;
+  padding: 15px 20px;
+
+  .Logo-color {
+    color: $basseColor;
+    font-family: $fontFamilyTitle;
+  }
+}

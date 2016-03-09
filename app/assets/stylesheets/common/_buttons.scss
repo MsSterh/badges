@@ -1,0 +1,14 @@
+@import "../mixins/variables";
+
+.BtnBase {
+  background: $blackDark;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  font-family: $fontFamilyBase;
+  font-size: $fontSizeBase;
+  height: $btnHeight;
+  line-height: $btnHeight;
+  margin: 0;
+  padding: 0 20px;
+}
