@@ -1,0 +1,43 @@
+@import "../mixins/variables";
+
+.CollectionShort {
+  > ul {
+    margin: 10px 0;
+    padding: 0;
+
+    > li {
+      background: $blueLight;
+      display: inline-block;
+      list-style: none;
+      margin: 10px 10px 10px 0;
+      position: relative;
+      width: 100px;
+      vertical-align: top;
+    }
+  }
+
+  .CollectionShort-itemImage {
+    &,
+    img {
+      background: $blackMiddle;
+      border: 0;
+      height: 75px;
+      width: 100px;
+    }
+  }
+
+  .CollectionShort-itemTitle {
+    color: $greyDark;
+    padding: 5px 10px;
+  }
+
+  .CollectionShort-itemCount {
+    background: $blueLight;
+    border-radius: 10px;
+    color: $greyDark;
+    padding: 0 7px;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+  }
+}

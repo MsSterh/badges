@@ -1,6 +1,6 @@
-<div>
-  <h1><%= link_to collection.title, collection_url(collection) %></h1>
+<div class="CollectionShort">
+  <h2><%= link_to collection.title, collection_url(collection) %></h2>
+  <ul>
+    <%= render partial: '/user_collections/partials/item', collection: collection.items, as: :item %>
+  </ul>
 </div>
-<ul>
-  <%= render partial: '/user_collections/partials/item', collection: collection.items, as: :item %>
-</ul>

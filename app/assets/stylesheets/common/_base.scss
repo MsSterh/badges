@@ -16,5 +16,21 @@ a {
 }
 
 h1 {
+  color: $greyDark;
   font-family: $fontFamilyTitle;
+  font-size: $fontSizeH1;
+  font-weight: normal;
+  margin: 0;
+
+  &.paddingBottom {
+    margin-bottom: 30px;
+  }
+}
+
+h2 {
+  color: $greyLight;
+  font-family: $fontFamilyTitle;
+  font-size: $fontSizeH2;
+  font-weight: normal;
+  margin: 0;
 }

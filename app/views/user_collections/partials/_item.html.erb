@@ -1,5 +1,11 @@
 <li>
-  <%= item.title %>
-  <%= image_tag item.image %>
-  <%= item.count(current_user) %>
+  <div class="CollectionShort-itemImage">
+    <%= image_tag item.image -%>
+  </div>
+  <div class="CollectionShort-itemTitle">
+    <%= item.title -%>
+  </div>
+  <div class="CollectionShort-itemCount">
+    <%= item.count(current_user) -%>
+  </div>
 </li>

@@ -1,6 +1,19 @@
-PROFILE - index
+<div class="ContentBlock ProfileName">
+  <div class="ProfileName-avatar">
+    <%= image_tag @user.avatar_url %>
+  </div>
+  <div class="ProfileName-title">
+    <%= link_to 'Edit', "#", class: "BtnBase ContentBlock-floatRight" %>
+    <div class="ProfileName-fullname<%= '--inacive' if @user.name.blank? %>">
+      <%= @user.name || "Edit for enter your name" %>
+    </div>
+    <div class="ProfileName-email">
+      <%= @user.email %>
+    </div>
+  </div>
+</div>
 
-<div>
+<div class="ContentBlock">
   <%= form_for @user, url: { controller: "profiles", action: "update" } do |f| %>
     <dl>
       <dd>Email</dd>
@@ -12,15 +25,15 @@ PROFILE - index
       <dd>New avatar</dd>
       <dt><%= f.file_field :avatar %></dt>
       <dd></dd>
-      <dt><%= f.submit :update %></dt>
+      <dt><%= f.submit :update, class: "BtnBase" %></dt>
     </dl>
   <% end %>
 </div>
 
-<div>
-  <h3>
+<div class="ContentBlock">
+  <h1 class="<%= 'paddingBottom' if current_user.complited_collections.present? %>">
     Completed collection: <%= current_user.complited_collections.count %> of <%= current_user.user_collections.count %>
-  </h3>
+  </h1>
   <% if current_user.complited_collections.present? %>
     <ul>
       <% current_user.complited_collections.each do |c| %>
@@ -30,8 +43,10 @@ PROFILE - index
   <% end %>
 </div>
 
-<div>
-  <h3>Friends: <%= current_user.friends.count %></h3>
+<div class="ContentBlock">
+  <h1 class="<%= 'paddingBottom' if current_user.friends.present? %>">
+    Friends: <%= current_user.friends.count %>
+  </h1>
   <% if current_user.friends.present? %>
     <ul>
       <% current_user.friends.each do |f| %>
@@ -41,11 +56,11 @@ PROFILE - index
   <% end %>
 </div>
 
-<div>
-  <h3>
+<div class="ContentBlock">
+  <h1 class="<%= 'paddingBottom' if current_user.collections.count > 0 %>">
+    <%= link_to 'Add more collections', collections_url, class: "BtnBase ContentBlock-floatRight" %>
     Collections in progress: <%= current_user.collections.count %> of <%= current_user.user_collections.count %>
-  </h3>
-  <%= link_to 'Add more collections', collections_url %>
+  </h1>
 
   <%= render partial: '/user_collections/partials/collections', object: current_user.collections %>
 </div>
