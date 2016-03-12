@@ -1,0 +1,17 @@
+@import "../mixins/variables";
+
+.BodyBlock {
+  margin: 10px 0;
+  overflow: hidden;
+  padding: 0 30px;
+
+  .BodyBlock-floatLeft {
+    display: inline-block;
+    float: left;
+  }  
+
+  .BodyBlock-floatRight {
+    display: inline-block;
+    float: right;
+  }  
+}

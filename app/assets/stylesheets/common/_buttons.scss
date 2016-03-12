@@ -1,10 +1,9 @@
 @import "../mixins/variables";
 
-.BtnBase {
-  background: $blackDark;
+@mixin btn_base() {
   border: none;
-  color: $greyDark;
   cursor: pointer;
+  display: inline-block;
   font-family: $fontFamilyBase;
   font-size: $fontSizeBase;
   height: $btnHeight;
@@ -15,4 +14,16 @@
   &:hover {
     color: $white;
   }
+}
+
+.BtnBase {
+  @include btn_base;
+  background: $blackDark;
+  color: $greyDark;
+}
+
+.BtnColor {
+  @include btn_base;
+  background: $baseColor;
+  color: $white;
 }

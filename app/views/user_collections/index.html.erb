@@ -1,8 +1,15 @@
-[SEARCH] 
-<h3>
-  Complited collections: <%= current_user.complited_collections.count %>
-</h3>
+<div class="BodyBlock">
+  <div class="BodyBlock-floatLeft">
+    <%= link_to "Complited collections #{current_user.complited_collections.count}", :profile, class: "BtnBase" if current_user.complited_collections.present? %>
+    <%= link_to "Friends", "", class: "BtnBase" %>
+    <%= link_to 'Add more collections', collections_url, class: "BtnBase" %>
+    <%= link_to "Exchanging", "", class: "BtnColor" %>
+  </div>
+  <div class="BodyBlock-floatRight">
+    <%= render partial: '/common/search' %>
+  </div>
+</div>
 
-<%= link_to 'Add more collections', collections_url %>
-
-<%= render partial: '/user_collections/partials/collections', object: @collections %>
+<div class="ContentBlock">
+  <%= render partial: '/user_collections/partials/collections', object: @collections %>
+</div>

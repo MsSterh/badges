@@ -1,7 +1,7 @@
 <div class="Header">
   <div class="Content">
     <div class="Logo">
-      <span class="Logo-color">Changeable</span>Item
+      <%= link_to (content_tag :span, "Changeable", class: "Logo-color") + Item, :collections %>
     </div>
     <div class="Menu">
       <% if user_signed_in? %>
