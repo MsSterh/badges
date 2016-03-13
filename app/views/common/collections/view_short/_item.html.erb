@@ -1,0 +1,14 @@
+<% item_count = item.count(current_user) %>
+<% if item_count > 0 %>
+  <li>
+    <div class="CollectionShort-itemImage">
+      <%= image_tag item.image -%>
+    </div>
+    <div class="CollectionShort-itemTitle">
+      <%= item.title -%>
+    </div>
+    <div class="CollectionShort-itemCount">
+      <%= item_count -%>
+    </div>
+  </li>
+<% end %>

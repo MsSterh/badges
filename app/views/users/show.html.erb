@@ -1,37 +1,25 @@
-<div>
-  <%= link_to 'All my collections', :collections, class: "BtnBase" %>
+<div class="BodyBlock">
+  <div class="BodyBlock-floatLeft">
+    <%= link_to 'All my collections', :my_collections, class: "BtnBase" %>
+  </div>
+  <div class="BodyBlock-floatRight">
+    <%= render partial: '/common/search' %>
+  </div>
 </div>
 
 <div class="ContentBlock ProfileName">
+  <%= link_to 'Add to friend', "#", class: "BtnColor ContentBlock-floatRight" if current_user != @user %>
   <div class="ProfileName-avatar">
     <%= image_tag @user.avatar_url %>
   </div>
   <div class="ProfileName-title">
-    <%= link_to 'Edit', "#", class: "BtnBase ContentBlock-floatRight" %>
     <div class="ProfileName-fullname<%= '--inacive' if @user.name.blank? %>">
-      <%= @user.name || "Edit for enter your name" %>
+      <%= @user.name || "No name" %>
     </div>
     <div class="ProfileName-email">
       <%= @user.email %>
     </div>
   </div>
-</div>
-
-<div class="ContentBlock">
-  <%= form_for @user, url: { controller: "profiles", action: "update" } do |f| %>
-    <dl>
-      <dd>Email</dd>
-      <dt><%= @user.email %></dt>
-      <dd>Name</dd>
-      <dt><%= f.text_field :name %></dt>
-      <dd>Curent avatar</dd>
-      <dt><%= image_tag @user.avatar_url %></dt>
-      <dd>New avatar</dd>
-      <dt><%= f.file_field :avatar %></dt>
-      <dd></dd>
-      <dt><%= f.submit :update, class: "BtnBase" %></dt>
-    </dl>
-  <% end %>
 </div>
 
 <div class="ContentBlock">
@@ -62,9 +50,8 @@
 
 <div class="ContentBlock">
   <h1 class="<%= 'paddingBottom' if current_user.collections.count > 0 %>">
-    <%= link_to 'Add more collections', collections_url, class: "BtnBase ContentBlock-floatRight" %>
     Collections in progress: <%= current_user.collections.count %> of <%= current_user.user_collections.count %>
   </h1>
 
-  <%= render partial: '/user_collections/partials/collections', object: current_user.collections %>
+  <%#= render partial: '/user_collections/partials/collections', object: current_user.collections %>
 </div>

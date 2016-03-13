@@ -8,13 +8,21 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'profile', to: 'profiles#index', as: 'user_root'
-  resource :profile
+  resources :users
 
   resources :collections do
     resources :items
   end
 
+  namespace :admin do
+    resources :collections
+  end
+
+  namespace :my do
+    resources :collections
+    resource :profile
+    get 'profile', to: 'profiles#index', as: 'user_root'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

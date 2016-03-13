@@ -1,0 +1,6 @@
+<div class="CollectionShort">
+  <h2><%= link_to collection.title, collection_url(collection) %></h2>
+  <ul>
+    <%= render partial: '/common/collections/view_short/item', collection: collection.items, as: :item %>
+  </ul>
+</div>

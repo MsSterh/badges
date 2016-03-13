@@ -1,9 +1,17 @@
-[SEARCH] [FULL COLLECTION: <%= @collections %>]
+<div class="BodyBlock">
+  <div class="BodyBlock-floatLeft">
+    <h1>Full collections: <%= @collections.count %></h1>
+    <%= link_to 'New collection', :new_collection if current_user.admin? %>
+  </div>
+  <div class="BodyBlock-floatRight">
+    <%= render partial: '/common/search' %>
+  </div>
+</div>
 
 <% if @collections.any? %>
   <%= render partial: '/collections/partials/collection', collection: @collections %>
 <% else %>
-  <h1>You have not had any collections yet.</h1>
+  <div class="ContentBlock">
+    <h1>There are no any collections yet.</h1>
+  </div>
 <% end %>
-
-<%= link_to 'New collection', :new_collection if current_user.admin? %>

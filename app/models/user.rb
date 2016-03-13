@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
   has_many :user_items
   has_many :items, through: :user_items
 
-  has_many :friends
+  has_friendship
+
   #has_many :requested_friends, :through => :friendships, :source => :friend, :conditions => "status = 'requested'", :order => :created_at
   #has_many :pending_friends, :through => :friendships, :source => :friend, :conditions => "status = 'pending'", :order => :created_at
   #has_many :friendships, :dependent => :destroy
@@ -29,5 +30,9 @@ class User < ActiveRecord::Base
 
   def avatar_url
     avatar.present? ? avatar : gravatar_url
+  end
+
+  def admin?
+    self.admin == true
   end
 end

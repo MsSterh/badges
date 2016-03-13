@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Classier solution for file uploads https://github.com/carrierwaveuploader/carrierwave
 gem 'carrierwave'
 gem 'gravtastic'
+gem 'has_friendship'
 
 gem 'devise'
 
