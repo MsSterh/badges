@@ -1,6 +1,6 @@
 <div class="BodyBlock">
   <div class="BodyBlock-floatLeft">
-    <%= link_to "Complited collections #{current_user.complited_collections.count}", :profile, class: "BtnBase" if current_user.complited_collections.present? %>
+    <%= link_to "Complited collections #{current_user.complited_collections.count}", :my_profile, class: "BtnBase" if current_user.complited_collections.present? %>
     <%= link_to "Friends", "", class: "BtnBase" %>
     <%= link_to 'Add more collections', collections_url, class: "BtnBase" %>
     <%= link_to "Exchanging", "", class: "BtnColor" %>

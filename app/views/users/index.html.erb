@@ -1,0 +1,28 @@
+<div class="BodyBlock">
+  <div class="BodyBlock-floatLeft">
+    <%= link_to 'All my collections', :my_collections, class: "BtnBase" %>
+  </div>
+  <div class="BodyBlock-floatRight">
+    <%= render partial: '/common/search' %>
+  </div>
+</div>
+
+<% @users.each do |user| %>
+  <% if current_user != user %>
+    <div class="ContentBlock ProfileName">
+      <%= link_to status(current_user.id, user.id) || 'Add to friend', friendships_path(user_id: user.id), method: :post,
+                  class: "BtnColor BtnColor#{status(current_user.id, user.id)} ContentBlock-floatRight" %>
+      <div class="ProfileName-avatar">
+        <%= image_tag user.avatar_url %>
+      </div>
+      <div class="ProfileName-title">
+        <div class="ProfileName-fullname<%= '--inacive' if user.name.blank? %>">
+          <%= user.name || "No name" %>
+        </div>
+        <div class="ProfileName-email">
+          <%= user.email %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

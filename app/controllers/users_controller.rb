@@ -2,6 +2,10 @@ class UsersController < ActionController::Base
   layout "application"
   before_filter :authenticate_user!
 
+  def index
+    @users = User.all
+  end
+
   def show
     find_user
   end

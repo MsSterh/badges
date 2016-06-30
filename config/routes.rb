@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users
+  resources :friendships
 
   resources :collections do
     resources :items

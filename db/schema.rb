@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20160313111841) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "friends", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.boolean  "approved",   default: false
+    t.datetime "created_at"
+  end
+
   create_table "friendships", force: :cascade do |t|
     t.integer  "friendable_id"
     t.string   "friendable_type"
