@@ -1,35 +1,36 @@
 @import "../mixins/variables";
 
 .ProfileName {
-  .ProfileName-avatar {
-    display: inline-block;
-    margin-right: 30px;
+}
+  
+.ProfileName-avatar {
+  display: inline-block;
+  margin-right: 30px;
 
-    img {
-      height: 80px;
-      width: 80px;
-    }
+  img {
+    height: 80px;
+    width: 80px;
   }
+}
 
-  .ProfileName-title {
-    display: inline-block;
-    width: calc(100% - 115px);
-    vertical-align: top;
-  }
+.ProfileName-title {
+  display: inline-block;
+  width: calc(100% - 115px);
+  vertical-align: top;
+}
 
-  .ProfileName-fullname {
-    color: $white;
-    font-family: $fontFamilyTitle;
-    font-size: $fontSizeEnormous;
-  }
+.ProfileName-fullname {
+  color: $white;
+  font-family: $fontFamilyTitle;
+  font-size: $fontSizeEnormous;
+}
 
-  .ProfileName-fullname--inacive {
-    color: $blueLight;
-    font-family: $fontFamilyTitle;
-    font-size: $fontSizeH1;
-  }
+.ProfileName-fullname--inacive {
+  color: $blueLight;
+  font-family: $fontFamilyTitle;
+  font-size: $fontSizeH1;
+}
 
-  .ProfileName-email {
-    color: $greyDark;
-  }
+.ProfileName-email {
+  color: $greyDark;
 }

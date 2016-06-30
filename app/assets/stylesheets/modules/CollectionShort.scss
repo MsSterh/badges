@@ -15,29 +15,29 @@
       vertical-align: top;
     }
   }
+}
 
-  .CollectionShort-itemImage {
-    &,
-    img {
-      background: $blackMiddle;
-      border: 0;
-      height: 75px;
-      width: 100px;
-    }
+.CollectionShort-itemImage {
+  &,
+  img {
+    background: $blackMiddle;
+    border: 0;
+    height: 75px;
+    width: 100px;
   }
+}
 
-  .CollectionShort-itemTitle {
-    color: $greyDark;
-    padding: 5px 10px;
-  }
+.CollectionShort-itemTitle {
+  color: $greyDark;
+  padding: 5px 10px;
+}
 
-  .CollectionShort-itemCount {
-    background: $blueLight;
-    border-radius: 10px;
-    color: $greyDark;
-    padding: 0 7px;
-    position: absolute;
-    top: -7px;
-    right: -7px;
-  }
+.CollectionShort-itemCount {
+  background: $blueLight;
+  border-radius: 10px;
+  color: $greyDark;
+  padding: 0 7px;
+  position: absolute;
+  top: -7px;
+  right: -7px;
 }
